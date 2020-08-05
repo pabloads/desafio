@@ -9,13 +9,21 @@ Dowload
 
 Instalação
 
+Banco de dados H2:
+Ao acessar a url do banco, escolher Generic H2 (Server) no campo Saved Settings.
+No campo JDBC colocar a seguinte URL: jdbc:h2:tcp://localhost/~/desafio
+
 Tomcat:
 
 1 - Necessário ter o o Tomcate instalado. Tutorial nesse link: https://tomcat.apache.org/tomcat-8.5-doc/setup.html
 2 - Abrir a pasta do tomcate, onde foi feita a instalação e na pasta /bin executar o arquivo startup.sh para Linux ou startup.bat para Windows.
 3 - Entrar no endereço http://localhost:8080/ e clicar no botão "Manager App". 
 4 - Na seção WAR file to deploy carregar o desafio.war que foi gerado em .m2\repository\br\com\pablo\desafio\0.0.1\desafio-0.0.1. Após carregar, clicar em Deploy.
-5 - A aplicão devera ser exibida na lista de aplicaçãos. Para acesar clicar no nome da mesma ou então acessar http://localhost:8080/desafio/
+5 - A aplicão devera ser exibida na lista de aplicaçãos.
+
+Iniciar aplicação:
+Na lista de aplicações do Tomanct clicar em /desafio ou então acessar http://localhost:8080/desafio/
+
 
 
  
