@@ -13,9 +13,9 @@ Banco de dados H2:
 1- Instalar o H2 caso, não tenha instalado. 
 2 - Ao acessar http://localhost:8082/, escolher Generic H2 (Server) no campo Saved Settings.
 3 - No campo JDBC colocar a seguinte URL: jdbc:h2:tcp://localhost/~/desafio
-3 - Conectar e rodar o script abaixo:
+4 - Conectar e rodar o script abaixo:
 
-3 - Executar o script abaixo:
+5 - Executar o script abaixo:
 
 CREATE CACHED TABLE "PUBLIC"."PESSOA"(
     "ID" INT  NOT NULL ,
