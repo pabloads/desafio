@@ -10,8 +10,27 @@ Dowload
 Instalação
 
 Banco de dados H2:
-Ao acessar a url do banco, escolher Generic H2 (Server) no campo Saved Settings.
-No campo JDBC colocar a seguinte URL: jdbc:h2:tcp://localhost/~/desafio
+1- Instalar o H2 caso, não tenha instalado. 
+2 - Ao acessar http://localhost:8082/, escolher Generic H2 (Server) no campo Saved Settings.
+3 - No campo JDBC colocar a seguinte URL: jdbc:h2:tcp://localhost/~/desafio
+3 - Conectar e rodar o script abaixo:
+
+3 - Executar o script abaixo:
+
+CREATE CACHED TABLE "PUBLIC"."PESSOA"(
+    "ID" INT DEFAULT NEXT VALUE FOR "PUBLIC"."SYSTEM_SEQUENCE_13A62F80_F364_45B2_BD91_8E33DB300AA4" NOT NULL NULL_TO_DEFAULT SEQUENCE "PUBLIC"."SYSTEM_SEQUENCE_13A62F80_F364_45B2_BD91_8E33DB300AA4",
+    "NOME" VARCHAR,
+    "EMAIL" VARCHAR,
+    "SEXO" VARCHAR,
+    "NATURALIDADE" VARCHAR,
+    "NACIONALIDADE" VARCHAR,
+    "CPF" VARCHAR NOT NULL,
+    "DATA_CADASTRO" TIMESTAMP,
+    "DATA_NASCIMENTO" DATE,
+    "DATA_ATUALIZACAO" TIMESTAMP,
+    "ENDERECO" VARCHAR
+);
+
 
 Tomcat:
 
