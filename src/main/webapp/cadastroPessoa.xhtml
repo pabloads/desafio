@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<h:outputStylesheet name="style.css" library="css" />
+	<title>Cadastro de Pessoas</title>
+</h:head>
+<h:body styleClass="fonte">
+	<h1>Cadastro de Pessoas</h1>
+	<h:messages style="color:red;margin:8px;" />
+	<h:form id="cadastroForm">
+		<fieldset>
+			<div class="float">
+				<h:outputLabel value="Nome:" styleClass="lable" />
+				<h:inputText style="width: 250px" id="name"
+					value="#{pessoaMB.pessoa.nome}" styleClass="campo">
+				</h:inputText>
+			</div>
+			<div class="float">
+
+				<h:outputLabel value="CPF:" styleClass="lable" />
+				<h:inputText id="cpf" value="#{pessoaMB.pessoa.cpf}"
+					required="true" requiredMessage="CPF não informado."
+					styleClass="campo">
+				</h:inputText>
+
+			</div>
+		</fieldset>
+		<div class="marginLeft">
+			<h:outputLabel value="Data de Nascimento:" styleClass="lable" />
+			<h:inputText id="dataNascimento"
+				value="#{pessoaMB.pessoa.dataNascimento}" styleClass="campo">
+				<f:convertDateTime type="date" pattern="dd/MM/yyyy"
+					dateStyle="short" />
+			</h:inputText>
+		</div>
+		<div class="marginLeft">
+			<h:outputLabel value="Sexo:" styleClass="lable" />
+			<h:selectOneRadio id="aluno-sexo" value="#{pessoaMB.pessoa.sexo}"
+				styleClass="can">
+				<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+				<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+			</h:selectOneRadio>
+		</div>
+		<div class="marginLeft">
+			<h:outputLabel value="E-mail:" styleClass="lable" />
+			<h:inputText id="email" value="#{pessoaMB.pessoa.email}"
+				styleClass="campo email">
+			</h:inputText>
+		</div>
+		<div class="marginLeft">
+			<h:outputLabel value="Endereço:" styleClass="lable" />
+			<h:inputText id="endereco" value="#{pessoaMB.pessoa.endereco}"
+				styleClass="campo" style="width: 33em" required="true" requiredMessage="Endereço não informado.">
+			</h:inputText>
+		</div>
+		<div class="marginLeft">
+			<h:outputLabel value="Naturalidade" styleClass="lable" />
+			<h:inputText id="naturalidade"
+				value="#{pessoaMB.pessoa.naturalidade}" styleClass="campo">
+			</h:inputText>
+		</div>
+		<div class="marginLeft">
+			<h:outputLabel value="Nacionalidade" styleClass="lable" />
+			<h:inputText id="nacionalidade"
+				value="#{pessoaMB.pessoa.nacionalidade}" styleClass="campo">
+			</h:inputText>
+		</div>
+
+		<h:commandButton id="botaoCadastrar" value="Cadastrar"
+			action="#{pessoaMB.cadastrar}" styleClass="btn fonte" />
+		<h:commandLink id="botaoVoltar" value="Voltar" action="index"
+			styleClass="btn fonte" immediate="true" style="text-decoration: none" />
+
+	</h:form>
+</h:body>
+</html>

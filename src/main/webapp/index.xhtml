@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<h:outputStylesheet name="style.css" library="css" />
+
+	<title>Administração de Pessoas</title>
+
+</h:head>
+<h:body>
+	<h1>Administração de Pessoas</h1>
+	<h:form id="pesquisaForm">
+		<fieldset>
+			<div class="float">
+				<h:outputLabel value="Nome:" styleClass="lable" />
+				<h:inputText style="width: 250px" id="name"
+					value="#{pessoaMB.pessoaDTO.nome}" styleClass="campo">
+				</h:inputText>
+			</div>
+			<div class="float">
+
+				<h:outputLabel value="CPF:" styleClass="lable" />
+				<h:inputText id="cpf" value="#{pessoaMB.pessoaDTO.cpf}"
+					styleClass="campo">
+				</h:inputText>
+
+			</div>
+		</fieldset>
+		<div class="marginLeft">
+			<h:outputLabel value="Data de Nascimento:" styleClass="lable" />
+			<h:inputText id="dataNascimento"
+				value="#{pessoaMB.pessoaDTO.dataNascimento}" styleClass="campo">
+				<f:convertDateTime type="date" pattern="dd/MM/yyyy"
+					dateStyle="short" />
+			</h:inputText>
+		</div>
+		<div class="marginLeft">
+			<h:outputLabel value="Sexo:" styleClass="lable" />
+			<h:selectOneRadio id="aluno-sexo" value="#{pessoaMB.pessoaDTO.sexo}">
+				<f:selectItem itemLabel="Masculino" itemValue="Masculino"
+					styleClass="lable" />
+				<f:selectItem itemLabel="Feminino" itemValue="Feminino"
+					styleClass="lable" />
+			</h:selectOneRadio>
+		</div>
+		<div class="marginLeft">
+			<h:outputLabel value="E-mail:" styleClass="lable" />
+			<h:inputText id="email" value="#{pessoaMB.pessoaDTO.email}"
+				styleClass="campo email">
+			</h:inputText>
+		</div>
+		<div class="marginLeft">
+			<h:outputLabel value="Endereço:" styleClass="lable" />
+			<h:inputText id="endereco" value="#{pessoaMB.pessoa.endereco}"
+				styleClass="campo" style="width: 33em">
+			</h:inputText>
+		</div>
+		<div class="marginLeft">
+			<h:outputLabel value="Naturalidade" styleClass="lable" />
+			<h:inputText id="naturalidade"
+				value="#{pessoaMB.pessoaDTO.naturalidade}" styleClass="campo">
+			</h:inputText>
+		</div>
+		<div class="marginLeft">
+			<h:outputLabel value="Nacionalidade" styleClass="lable" />
+			<h:inputText id="nacionalidade"
+				value="#{pessoaMB.pessoaDTO.nacionalidade}" styleClass="campo">
+			</h:inputText>
+		</div>
+
+		<h:commandButton id="botaoPesquisar" value="Pesquisar"
+			action="#{pessoaMB.pesquisar}" styleClass="btn fonte" />
+
+		<h:commandButton id="botaoLimpar" value="Limpar"
+			action="#{pessoaMB.limpar}" immediate="true" styleClass="btn fonte" />
+
+		<h:commandButton id="botaoListarTodos" value="Listar Todos"
+			action="#{pessoaMB.listarTodos}" immediate="true"
+			styleClass="btn fonte" />
+		<h:commandButton id="cadastrar" value="Novo Cadastro"
+			action="cadastroPessoa" styleClass="btn fonte" />
+
+	</h:form>
+	<h:messages style="color:red;margin:8px;" />
+	<h:form id="listaForm" rendered="#{not empty pessoaMB.lista}"
+		styleClass="tabela">
+		<h:dataTable value="#{pessoaMB.lista}" id="tabela" var="pessoa"
+			styleClass="fonte"
+			columnClasses="colunas, colunas, colunas, colunas, colunas, colunas, colunas colunas, colunas, colunas">
+			<h:column styleClass="lable" headerClass="cabecalho">
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{pessoa.nome}"
+					rendered="#{not pessoa.editando}" />
+				<h:inputText value="#{pessoa.nome}" rendered="#{pessoa.editando}" />
+			</h:column>
+
+			<h:column styleClass="lable" headerClass="cabecalho">
+				<f:facet name="header">E-mail</f:facet>
+				<h:outputText value="#{pessoa.email}"
+					rendered="#{not pessoa.editando}" />
+				<h:inputText value="#{pessoa.email}" rendered="#{pessoa.editando}" />
+			</h:column>
+			<h:column styleClass="lable" headerClass="cabecalho">
+				<f:facet name="header">Endereco</f:facet>
+				<h:outputText value="#{pessoa.endereco}"
+					rendered="#{not pessoa.editando}" />
+				<h:inputText value="#{pessoa.endereco}" rendered="#{pessoa.editando}" required="true" requiredMessage="Endereço não informado."/>
+			</h:column>
+
+			<h:column styleClass="lable" headerClass="cabecalho">
+				<f:facet name="header">CPF</f:facet>
+				<h:outputText value="#{pessoa.cpf}"
+					rendered="#{not pessoa.editando}" />
+				<h:inputText value="#{pessoa.cpf}" rendered="#{pessoa.editando}" />
+			</h:column>
+
+			<h:column styleClass="lable" headerClass="cabecalho">
+				<f:facet name="header">Data Nascimento</f:facet>
+				<h:outputText value="#{pessoa.dataNascimento}"
+					rendered="#{not pessoa.editando}" styleClass="centCont">
+					<f:convertDateTime pattern="MM/dd/yyyy" dateStyle="short" />
+				</h:outputText>
+				<h:inputText value="#{pessoa.dataNascimento}"
+					rendered="#{pessoa.editando}">
+					<f:convertDateTime type="date" pattern="dd/MM/yyyy"
+						dateStyle="short" />
+				</h:inputText>
+
+			</h:column>
+
+			<h:column styleClass="lable" headerClass="cabecalho">
+				<f:facet name="header">Sexo</f:facet>
+				<h:outputText value="#{pessoa.sexo}"
+					rendered="#{not pessaMB.podeEditar}" />
+				<h:inputText value="#{pessoa.sexo}" rendered="#{pessaMB.podeEditar}" />
+			</h:column>
+
+			<h:column styleClass="lable" headerClass="cabecalho">
+				<f:facet name="header">Naturalidade</f:facet>
+				<h:outputText value="#{pessoa.naturalidade}"
+					rendered="#{not pessoa.editando}" />
+				<h:inputText value="#{pessoa.naturalidade}"
+					rendered="#{pessoa.editando}" />
+			</h:column>
+
+			<h:column styleClass="lable" headerClass="cabecalho">
+				<f:facet name="header">Nacionalidade</f:facet>
+				<h:outputText value="#{pessoa.nacionalidade}"
+					rendered="#{not pessoa.editando}" />
+				<h:inputText value="#{pessoa.nacionalidade}"
+					rendered="#{pessoa.editando}" />
+			</h:column>
+			<h:column styleClass="lable" headerClass="cabecalho">
+				<f:facet name="header">Ações</f:facet>
+				<h:commandButton action="#{pessoaMB.editar(pessoa)}" value="Editar"
+					rendered="#{not pessoa.editando}" styleClass="btnTabela">
+				</h:commandButton>
+				<h:commandButton actionListener="#{pessoaMB.cancelar(pessoa)}"
+					value="Cancelar" rendered="#{pessoa.editando}"
+					styleClass="btnTabela">
+					<f:ajax execute="@this" render="@form" />
+				</h:commandButton>
+				<h:commandButton actionListener="#{pessoaMB.salvarEdicao(pessoa)}"
+					rendered="#{pessoa.editando}" value="Salvar" styleClass="btnTabela">
+				</h:commandButton>
+				<h:commandButton action="#{pessoaMB.excluir(pessoa)}"
+					rendered="#{not pessoa.editando}" value="Excluir"
+					styleClass="btnTabela">
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>
