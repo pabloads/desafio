@@ -13,6 +13,7 @@ Banco de dados H2:
 - Instalar o H2 caso, não tenha instalado. 
 - Ao acessar http://localhost:8082/, escolher Generic H2 (Server) no campo Saved Settings.
 - No campo JDBC colocar a seguinte URL: jdbc:h2:tcp://localhost/~/desafio
+- Dexiar o User Name como sa e o Password em branco.
 - Conectar e rodar o script abaixo:
 
 - Executar o script abaixo:
