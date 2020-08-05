@@ -45,4 +45,4 @@ Tomcat:
 - A aplicão devera ser exibida na lista de aplicaçãos.
 
 Iniciar aplicação:
-Na lista de aplicações do Tomanct clicar em /desafio ou então acessar http://localhost:8080/desafio/
+- Na lista de aplicações do Tomanct clicar em /desafio ou então acessar http://localhost:8080/desafio/
