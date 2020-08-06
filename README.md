@@ -4,7 +4,7 @@ Dowload
 
 - Criar pasta para o projeto e abrir uma linha de comando.
 - Criar o repositório git com o comando git init (Caso não tenha o Git instaldo na máquina, instale antes de fazer esse passo).
-- Rodar o comando $ git clone git://github.com/pabloads/desafio.git
+- Rodar o comando git clone git://github.com/pabloads/desafio.git
 - Entrar na pasta desafio e rodar o comando mvn clean install (Caso não tenha o instaldo na máquina, instale antes de fazer esse passo).
 
 Instalação
